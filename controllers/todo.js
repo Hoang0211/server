@@ -18,16 +18,6 @@ exports.postCreateTodo = (req, res) => {
     );
 };
 
-exports.putUpdateTodo = (req, res) => {
-  Todo.findByIdAndUpdate(req.params.id, req.body)
-    .then((data) => res.json({ message: 'updated successfully', data }))
-    .catch((err) =>
-      res
-        .status(400)
-        .json({ message: 'Failed to update todo', error: err.message })
-    );
-};
-
 exports.deleteTodo = (req, res) => {
   Todo.findByIdAndRemove(req.params.id, req.body)
     .then((data) => res.json({ message: 'todo deleted successfully', data }))
